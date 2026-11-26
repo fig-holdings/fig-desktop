@@ -1,0 +1,621 @@
+{
+  "figBundledDev": [
+    "node_modules/electron-vite",
+    "node_modules/rolldown",
+    "node_modules/vite",
+    "node_modules/yaml"
+  ],
+  "dsh": [
+    {
+      "name": "pnpm",
+      "version": "10.34.9",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/pnpm/-/pnpm-10.34.9.tgz",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/pnpm-MIT.txt",
+          "source": "https://registry.npmjs.org/pnpm/-/pnpm-10.34.9.tgz#package/LICENSE",
+          "sha256": "e0a867ff513ea7be2a0ddc339ac6a031e459a38668e077b8f0e649544062f9f2"
+        },
+        {
+          "path": "third-party-licenses/upstream/pnpm-bundled-NOTICES.txt",
+          "source": "https://registry.npmjs.org/pnpm/-/pnpm-10.34.9.tgz#package/dist/",
+          "sha256": "36ec586bf2572b7c5e6ae7b9711cf1a90178b5c754f15a1a5dd1dc0b172fd783"
+        }
+      ],
+      "integrity": "sha512-9JtajqD97bRLs8DB1ldQkqU8KVDZW3rRXfEfF5dId6LeOgHAfpNOmyjOcW5RwJqUlixzBtCb4uHksYqMh2L9Mg=="
+    }
+  ],
+  "adapted": [
+    {
+      "name": "DSH Codex UI",
+      "version": "7b9f5e7",
+      "license": "Apache-2.0",
+      "source": "https://github.com/MichengAI/dsh-codex-ui/tree/7b9f5e7",
+      "files": [
+        {
+          "path": "harness/composer/NOTICE",
+          "source": "harness/composer/NOTICE",
+          "sha256": "00b66da40c6f210c974c21541ebba92051c073f5c660608ed550edd762d10276"
+        },
+        {
+          "path": "harness/composer/LICENSE-dsh-codex-ui",
+          "source": "harness/composer/LICENSE-dsh-codex-ui",
+          "sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "name": "Fig desktop icons",
+      "version": "VI v0.4",
+      "license": "Fig Desktop brand asset",
+      "source": "Fig visual identity v0.4 (design source not published)",
+      "files": [
+        {
+          "path": "../assets/brand/provenance.json",
+          "source": "assets/brand/provenance.json",
+          "sha256": "77c3fd638d7653070b1248f15a6e118eb1e673487470e08676da0a85031cae2e"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../assets/brand/app-icon.icns",
+          "sha256": "1c188a48b860f189ea887d3374a6bb7f7566bdd69b504bbb33398380b6d4b4d9"
+        },
+        {
+          "path": "../assets/brand/app-icon.png",
+          "sha256": "f9a90e9f1cee6ec00af8ae7d77ecd3c39f821fdcbafb4e7159bcbd52e8fbb2e5"
+        },
+        {
+          "path": "../assets/brand/ui-logo.svg",
+          "sha256": "f717a8851d010e10d9618a6062ddb5f75870d7c09763e61184a33dd477afea57"
+        },
+        {
+          "path": "../assets/brand/ui-logo-reverse.svg",
+          "sha256": "e4aa4ac9e71af0fa15f18090474ce861cac0d1890676e433bdef6e35ee4ae5fb"
+        }
+      ]
+    },
+    {
+      "name": "Fig desktop wordmarks",
+      "version": "VI v0.1",
+      "license": "Fig Desktop brand asset",
+      "source": "Fig visual identity v0.1 (design source not published)",
+      "files": [
+        {
+          "path": "../assets/brand/provenance.json",
+          "source": "assets/brand/provenance.json",
+          "sha256": "77c3fd638d7653070b1248f15a6e118eb1e673487470e08676da0a85031cae2e"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../assets/brand/wordmark.svg",
+          "sha256": "4ae906a155aca466e8c95afe14b584b06d227254e3539449583160ef817fc6ef"
+        },
+        {
+          "path": "../assets/brand/wordmark-reverse.svg",
+          "sha256": "e2e371f53f9145150f064ff40d5aeea99f7548fdee9066a3987cae510f36af53"
+        }
+      ]
+    },
+    {
+      "name": "Bricolage Grotesque",
+      "version": "1.001",
+      "license": "OFL-1.1",
+      "source": "https://github.com/ateliertriay/bricolage",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/bricolage-OFL.txt",
+          "source": "https://raw.githubusercontent.com/google/fonts/92f1a0b2771d29dfbc73ac2c56752ba64ff85c22/ofl/bricolagegrotesque/OFL.txt",
+          "sha256": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../assets/brand/wordmark.svg",
+          "sha256": "4ae906a155aca466e8c95afe14b584b06d227254e3539449583160ef817fc6ef"
+        },
+        {
+          "path": "../assets/brand/wordmark-reverse.svg",
+          "sha256": "e2e371f53f9145150f064ff40d5aeea99f7548fdee9066a3987cae510f36af53"
+        }
+      ]
+    },
+    {
+      "name": "Geist Mono",
+      "version": "1.701",
+      "license": "OFL-1.1",
+      "source": "https://github.com/vercel/geist-font",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/geistmono-OFL.txt",
+          "source": "https://raw.githubusercontent.com/google/fonts/c5ab61088c14548190abde878e8062f293ba67ac/ofl/geistmono/OFL.txt",
+          "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+        }
+      ],
+      "inputs": [
+        {
+          "path": "../assets/brand/geist-mono.woff2",
+          "sha256": "dfad5f3cfbdb83a7ebfd71347505e80286f2576777ed192bace289d80ece6436"
+        }
+      ]
+    }
+  ],
+  "spdx": {
+    "0BSD": {
+      "path": "third-party-licenses/spdx/0BSD.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/0BSD.txt",
+      "sha256": "e3f18c71e10d673590eb9856c1d79dd3b4b0d65404efb5e8584dbede7edd608b"
+    },
+    "Apache-2.0": {
+      "path": "third-party-licenses/spdx/Apache-2.0.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/Apache-2.0.txt",
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+    },
+    "BSD-2-Clause": {
+      "path": "third-party-licenses/spdx/BSD-2-Clause.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/BSD-2-Clause.txt",
+      "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df"
+    },
+    "BSD-3-Clause": {
+      "path": "third-party-licenses/spdx/BSD-3-Clause.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/BSD-3-Clause.txt",
+      "sha256": "5a93d5831e1297ab10fe643e1a631e83be392896da14ee2951285a79012df69d"
+    },
+    "BlueOak-1.0.0": {
+      "path": "third-party-licenses/spdx/BlueOak-1.0.0.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/BlueOak-1.0.0.txt",
+      "sha256": "8a1af140fdfbf5afd3df27f7e662f989c5b963a300020dfafce42033cae9e004"
+    },
+    "CC0-1.0": {
+      "path": "third-party-licenses/spdx/CC0-1.0.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/CC0-1.0.txt",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    "ISC": {
+      "path": "third-party-licenses/spdx/ISC.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/ISC.txt",
+      "sha256": "f2ec607f67bb0dd3053b49835b02110d5cd0f8eb6da3aac4dc0b142a6b299be9"
+    },
+    "LGPL-3.0-or-later": {
+      "path": "third-party-licenses/spdx/LGPL-3.0-or-later.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/LGPL-3.0-or-later.txt",
+      "sha256": "996af0513df21f7496288951c41428a03c174e9e4a9d63665c57d670f845ccb1"
+    },
+    "MIT": {
+      "path": "third-party-licenses/spdx/MIT.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/MIT.txt",
+      "sha256": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5"
+    },
+    "MPL-2.0": {
+      "path": "third-party-licenses/spdx/MPL-2.0.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/MPL-2.0.txt",
+      "sha256": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172"
+    },
+    "OFL-1.1": {
+      "path": "third-party-licenses/spdx/OFL-1.1.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/OFL-1.1.txt",
+      "sha256": "8eea8287e5876b539670cadb82e99f9a7afddec6f6730811be1daf25d2e9bcfd"
+    },
+    "Python-2.0": {
+      "path": "third-party-licenses/spdx/Python-2.0.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/Python-2.0.txt",
+      "sha256": "893c2bafbb8133f7aa97e1f79a3ee3241ebca7025f56278e9e1f72bb98592f9d"
+    },
+    "Unlicense": {
+      "path": "third-party-licenses/spdx/Unlicense.txt",
+      "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/Unlicense.txt",
+      "sha256": "0bdebfeda07d45dada625ae1317c6f833186e798b171d0db640bcf32e92a8240"
+    }
+  },
+  "dshEvidence": {
+    "@aws-sdk/credential-provider-http@3.972.83": {
+      "integrity": "sha512-NsLT02HXcWAQAgpuDJznoJDPIDH/Hh2LiQVlYc+1bVGsksEUZuYCMKa1E1L5qvzc5LLTphp7BP9LYVIhf+MbQA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/aws-sdk-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/aws/aws-sdk-js-v3/80cb7896f530f5d7cb33b3c5abbdae1212dbd768/LICENSE",
+          "sha256": "edea91454b811f127fbdea3d86f378f6719bd372ed440abf82b232f6fca06c3d"
+        }
+      ]
+    },
+    "@aws-sdk/credential-provider-http@3.972.86": {
+      "integrity": "sha512-U4mHaDRPWAn63yhl7FXIzbppNmW1F+4dSLeuiUpej2v3Xb6rGwvayEJ8SdlrdMV+/mZtd+GStTEP2HqurEzXtw==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/aws-sdk-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/aws/aws-sdk-js-v3/38038e7f8c9b4d9004b5e184537e2974ae081ab6/LICENSE",
+          "sha256": "edea91454b811f127fbdea3d86f378f6719bd372ed440abf82b232f6fca06c3d"
+        }
+      ]
+    },
+    "@aws-sdk/credential-provider-login@3.972.88": {
+      "integrity": "sha512-J8IcBpuFj3j3RImHq/dVO5HtnUbFgvzg7JQvzLt5A42VmzLLgPLM+CUWN68jpIMdIPayu1bb1T+mJjDv9Sq1aA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/aws-sdk-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/aws/aws-sdk-js-v3/80cb7896f530f5d7cb33b3c5abbdae1212dbd768/LICENSE",
+          "sha256": "edea91454b811f127fbdea3d86f378f6719bd372ed440abf82b232f6fca06c3d"
+        }
+      ]
+    },
+    "@aws-sdk/credential-provider-login@3.972.92": {
+      "integrity": "sha512-96bcp9Pe/Xd60OEwncZ+kAQTQSu+fJnpUGz1qE6ghF5jnETmrk8XMU86mIP3lolvnCgR61XbZ+Ht6hdBjiQOmQ==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/aws-sdk-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/aws/aws-sdk-js-v3/38038e7f8c9b4d9004b5e184537e2974ae081ab6/LICENSE",
+          "sha256": "edea91454b811f127fbdea3d86f378f6719bd372ed440abf82b232f6fca06c3d"
+        }
+      ]
+    },
+    "@aws-sdk/nested-clients@3.998.0": {
+      "integrity": "sha512-aOD1oQVWG6UjOOEdp0MsrWE93vG8pPbvtymmeNtglGxAARplh1wzhHs4npqtY5JN5GBSrTaLbn1hQQ3W2Lk8ow==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/aws-sdk-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/aws/aws-sdk-js-v3/80cb7896f530f5d7cb33b3c5abbdae1212dbd768/LICENSE",
+          "sha256": "edea91454b811f127fbdea3d86f378f6719bd372ed440abf82b232f6fca06c3d"
+        }
+      ]
+    },
+    "@aws-sdk/nested-clients@3.998.3": {
+      "integrity": "sha512-acHTTzMB13CU6dU4sxABYExMI3PQM2zStWH2MiUwJp/7QKTrLg2f7mbzSXoegW2kYOk2tdqQYagsZrWB8Xv7eA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/aws-sdk-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/aws/aws-sdk-js-v3/38038e7f8c9b4d9004b5e184537e2974ae081ab6/LICENSE",
+          "sha256": "edea91454b811f127fbdea3d86f378f6719bd372ed440abf82b232f6fca06c3d"
+        }
+      ]
+    },
+    "@deepseek-ai/dsh-experimental-cua-macos@0.2.2-rc.3": {
+      "integrity": "sha512-rYWzYS62dTv1D+sArlt2zgYQiGUZQ5re8js37yCzCWq+mm+dMX0q56brW/Mh69R8ln0pHM0n+C74li40VwlSIQ==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/deepseek-harness-MIT.txt",
+          "source": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/38a6a5c965aa99ab525161efb7cc5cf1fe62fced/LICENSE",
+          "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+        }
+      ]
+    },
+    "@deepseek-ai/dsh-experimental-cua-macos@0.2.2-rc.5": {
+      "integrity": "sha512-5kK1kVopC/zhAwqHQe4U9tFBxk7veURdaeKSvE95H0XAaNof0DjArhUyANUv8xMO5BbSe2HJB/4bRoud1xK2xg==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/deepseek-harness-MIT.txt",
+          "source": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/9c2670d3bce5275e0d1610272958121af87787bb/LICENSE",
+          "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+        }
+      ]
+    },
+    "@deepseek-ai/dsh-experimental-inspector@0.2.2-rc.1": {
+      "integrity": "sha512-yNnMBjCLNLKjM0XZR4/ARHxO7zT4iLrHp6FKP+VSXhCB2Ntc/ig67eMdwcMpS5wNBbaX/lLtfNx8DKZd8NSBTQ==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/deepseek-harness-MIT.txt",
+          "source": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/66491b05e3f05ad35bcdd4f6cd7ed26041d9e3db/LICENSE",
+          "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+        }
+      ]
+    },
+    "@deepseek-ai/dsh-experimental-inspector@0.2.2-rc.3": {
+      "integrity": "sha512-ng2d5djCNW6GoaEByN04BTRRjqAyOERdRaHvZGul747N1DIQMc8MtuxDVl7QfqwOM5hx67vsJBwtL6Kgq0qnaA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/deepseek-harness-MIT.txt",
+          "source": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/38a6a5c965aa99ab525161efb7cc5cf1fe62fced/LICENSE",
+          "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+        }
+      ]
+    },
+    "@deepseek-ai/dsh-experimental-inspector@0.2.2-rc.5": {
+      "integrity": "sha512-gzukNgCCxNt99MJzXNPqr+PofeqeKQuCEbDe21v12gwsYzF2AUOIL2RNmUFuxa0pKmnMXFri8ppV3xUhQ2eCOA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/deepseek-harness-MIT.txt",
+          "source": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/9c2670d3bce5275e0d1610272958121af87787bb/LICENSE",
+          "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be"
+        }
+      ]
+    },
+    "@deepseek-ai/libreoffice-kit-darwin-arm64@0.1.5": {
+      "integrity": "sha512-SjeXmyaTevEq2TxK7reb1rhCrQZ4QOXmXt/qEwfQD5Fx3odU0ILx2uiXN+nphSCQ95LFCzrElHGgv2c7a824yg==",
+      "files": [
+        {
+          "packageFile": "program/LibreOfficeDev.app/Contents/Resources/LICENSE",
+          "sha256": "cf7c3ddc46aa5fc3344aec290e9300dd61b5fddec51548ae35dccbde92b2747b",
+          "source": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-arm64/-/libreoffice-kit-darwin-arm64-0.1.5.tgz#program/LibreOfficeDev.app/Contents/Resources/LICENSE"
+        },
+        {
+          "packageFile": "program/LibreOfficeDev.app/Contents/Resources/NOTICE",
+          "sha256": "8d34210ebbfaee4ba258ef7b30c3044170f356ab82c8259c81b53860bcdeef7b",
+          "source": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-arm64/-/libreoffice-kit-darwin-arm64-0.1.5.tgz#program/LibreOfficeDev.app/Contents/Resources/NOTICE"
+        }
+      ]
+    },
+    "@deepseek-ai/libreoffice-kit-darwin-arm64@0.2.3": {
+      "integrity": "sha512-0dfiEQR6SqAQjh9hxyY8x77Sj3r+AGC+Xn2A/zF+bag9g40leYPL/c2UirSqYR6xUwE9a/5YgWFIHjw1eOh+3A==",
+      "files": [
+        {
+          "packageFile": "program/LibreOfficeDev.app/Contents/Resources/LICENSE",
+          "sha256": "cf7c3ddc46aa5fc3344aec290e9300dd61b5fddec51548ae35dccbde92b2747b",
+          "source": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-arm64/-/libreoffice-kit-darwin-arm64-0.2.3.tgz#program/LibreOfficeDev.app/Contents/Resources/LICENSE"
+        },
+        {
+          "packageFile": "program/LibreOfficeDev.app/Contents/Resources/NOTICE",
+          "sha256": "8d34210ebbfaee4ba258ef7b30c3044170f356ab82c8259c81b53860bcdeef7b",
+          "source": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-darwin-arm64/-/libreoffice-kit-darwin-arm64-0.2.3.tgz#program/LibreOfficeDev.app/Contents/Resources/NOTICE"
+        }
+      ]
+    },
+    "@deepseek-ai/libreoffice-kit-wasm@0.2.3": {
+      "integrity": "sha512-g81zHATxolq/HKRglfrSO2gQgj4RZ//nJo98BcTIs9l8GPU4STNcWwplx5CE6Iy/20lZFbwT9jvGw1Key9xZmg==",
+      "files": [
+        {
+          "packageFile": "licenses/LICENSE",
+          "sha256": "31c915ae5b7eafe51f06fc2537d2e7fefdee08e40d6b0d761d03d9f0fd58d660",
+          "source": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-wasm/-/libreoffice-kit-wasm-0.2.3.tgz#licenses/LICENSE"
+        },
+        {
+          "packageFile": "licenses/NOTICE",
+          "sha256": "8d34210ebbfaee4ba258ef7b30c3044170f356ab82c8259c81b53860bcdeef7b",
+          "source": "https://registry.npmjs.org/@deepseek-ai/libreoffice-kit-wasm/-/libreoffice-kit-wasm-0.2.3.tgz#licenses/NOTICE"
+        }
+      ]
+    },
+    "@earendil-works/pi-ai@1.5.0": {
+      "integrity": "sha512-VeWxNqTHSqRCf8AcY/6kvNwh+neRL6MPxZPePVztIQy6qqK9MR/YoCSN/ZgDnIyCD3pqEXgRyQbzk4KV4uvjbg==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/pi-MIT.txt",
+          "source": "https://raw.githubusercontent.com/earendil-works/pi/v1.5.0/LICENSE",
+          "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48"
+        }
+      ]
+    },
+    "@earendil-works/pi-ai@1.5.2": {
+      "integrity": "sha512-2tWPSnV3qzfiDIY3aWluBag3vC++Vs+VsXt/UquSU5onPMohPih72FUhIhaqmDdMYubOgB3Byl9uF4Vk40JLvQ==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/pi-MIT.txt",
+          "source": "https://raw.githubusercontent.com/earendil-works/pi/v1.5.2/LICENSE",
+          "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48"
+        }
+      ]
+    },
+    "@earendil-works/pi-schema@1.5.0": {
+      "integrity": "sha512-RW0MbT2tR65OY6xMsgB/yVBb7m/RTNwA+9hurSN1vVXfHZRVmVnXbruBPrx/PzbrQnW5yLVlMRWxErGDQtF1Hg==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/pi-MIT.txt",
+          "source": "https://raw.githubusercontent.com/earendil-works/pi/v1.5.0/LICENSE",
+          "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48"
+        }
+      ]
+    },
+    "@earendil-works/pi-schema@1.5.2": {
+      "integrity": "sha512-hJoyCXWUhsSrXY5wJo2Q4kHXUsR51pNhkJHAMkWRwVMLDRtMDPkKNaa+JlVRVqTw1hjdSxcVVaFLSDbKlaTXEQ==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/pi-MIT.txt",
+          "source": "https://raw.githubusercontent.com/earendil-works/pi/v1.5.2/LICENSE",
+          "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48"
+        }
+      ]
+    },
+    "@earendil-works/pi-telemetry@1.5.0": {
+      "integrity": "sha512-VW3tcVdnNfl/Vk8wHPTzZdKkxcsCOM12ppiO4DXnd9wMxUCmOfLt/wvUnWeKWbTVlVSRg0uqKtnnhE2UCsG2Bw==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/pi-MIT.txt",
+          "source": "https://raw.githubusercontent.com/earendil-works/pi/v1.5.0/LICENSE",
+          "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48"
+        }
+      ]
+    },
+    "@earendil-works/pi-telemetry@1.5.2": {
+      "integrity": "sha512-m+cumjIqNh1aMISi/9ttcG3ZOwIdriPbz/eMyWmRMJCGa/WcgY1RX4lrb7HvsHhSfI/JUeBESA4nOCr8C3y5ow==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/pi-MIT.txt",
+          "source": "https://raw.githubusercontent.com/earendil-works/pi/v1.5.2/LICENSE",
+          "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48"
+        }
+      ]
+    },
+    "@img/sharp-libvips-darwin-arm64@1.3.4": {
+      "integrity": "sha512-5R89nBYiRdUlSWJxPhO+GVtaXzXSxKnRu/xqMn3KTA3L9EB9Oy/P+Nn2f2vlhPuUdy/Zusb2DarbyTpGCfEDuw==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/libvips-8.18.7-LGPL-2.1.txt",
+          "source": "https://raw.githubusercontent.com/libvips/libvips/v8.18.7/LICENSE",
+          "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+        },
+        {
+          "path": "third-party-licenses/upstream/sharp-libvips-build-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/lovell/sharp-libvips/ebb95f8add54eee8bed840e3fb587e4cbec857d7/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        },
+        {
+          "path": "third-party-licenses/upstream/sharp-libvips-THIRD-PARTY-NOTICES.md",
+          "source": "https://raw.githubusercontent.com/lovell/sharp-libvips/ebb95f8add54eee8bed840e3fb587e4cbec857d7/THIRD-PARTY-NOTICES.md",
+          "sha256": "6f0d5086e3bcbee12bcdacf5878b31d1104002aeecaeb241d3fff466108082fe"
+        },
+        {
+          "packageFile": "versions.json",
+          "source": "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.3.4.tgz#package/versions.json",
+          "sha256": "e2611d5d854815a8b33c8a3d2ec649511a9596ccf16844e8eae7cf81e79881c4"
+        }
+      ]
+    },
+    "@koromix/koffi-darwin-arm64@3.1.1": {
+      "integrity": "sha512-+Dl0zQDh1Wb55AWOn9hp7K30qgkODvrvN+ZNkFOh81Q0oFX/rpJQtocgjAuYk2zFAcajSeVDumkcHMPwnKSXzA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/koffi-MIT.txt",
+          "source": "https://registry.npmjs.org/koffi/-/koffi-3.1.1.tgz#package/LICENSE.txt",
+          "sha256": "22bcbbbacd739b026a8dc484f62a31484ce4c4e31f3408b60b29b4e41d62b290"
+        }
+      ]
+    },
+    "@xterm/addon-serialize@0.14.0": {
+      "integrity": "sha512-uteyTU1EkrQa2Ux6P/uFl2fzmXI46jy5uoQMKEOM0fKTyiW7cSn0WrFenHm5vO5uEXX/GpwW/FgILvv3r0WbkA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/xterm-MIT.txt",
+          "source": "https://raw.githubusercontent.com/xtermjs/xterm.js/f447274f430fd22513f6adbf9862d19524471c04/LICENSE",
+          "sha256": "b569f629d00f2626a8100df2a1798210535621e42164dfd426a6fe5aac7b0ccd"
+        }
+      ]
+    },
+    "@xterm/headless@6.0.0": {
+      "integrity": "sha512-5Yj1QINYCyzrZtf8OFIHi47iQtI+0qYFPHmouEfG8dHNxbZ9Tb9YGSuLcsEwj9Z+OL75GJqPyJbyoFer80a2Hw==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/xterm-MIT.txt",
+          "source": "https://raw.githubusercontent.com/xtermjs/xterm.js/f447274f430fd22513f6adbf9862d19524471c04/LICENSE",
+          "sha256": "b569f629d00f2626a8100df2a1798210535621e42164dfd426a6fe5aac7b0ccd"
+        }
+      ]
+    },
+    "brotli@1.3.3": {
+      "integrity": "sha512-oTKjJdShmDuGW94SyyaoQvAjf30dZaHnjJ8uAF+u2/vGJkJbJPJAT1gDiOJP5v1Zb6f9KEyW/1HpuaWIXtGHPg==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/brotli-README-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/devongovett/brotli.js/e36051345f6d27a56e5f39ea70d2f789b8574046/readme.md#license",
+          "sha256": "daf005969aac8cb4283b3777361f0244f4cce898b9a983a60b7f0d9e96f559bf"
+        },
+        {
+          "path": "third-party-licenses/upstream/brotli-google-decoder-NOTICE.txt",
+          "source": "https://raw.githubusercontent.com/devongovett/brotli.js/e36051345f6d27a56e5f39ea70d2f789b8574046/dec/decode.js",
+          "sha256": "bc670957aaf188b069c48d4afe455bf0c276ec0f37994bdf435e3ad89e22a8a8"
+        },
+        {
+          "path": "third-party-licenses/spdx/MIT.txt",
+          "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/MIT.txt",
+          "sha256": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5"
+        },
+        {
+          "path": "third-party-licenses/spdx/Apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/Apache-2.0.txt",
+          "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+        }
+      ]
+    },
+    "data-uri-to-buffer@4.0.1": {
+      "integrity": "sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/data-uri-to-buffer-README-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/TooTallNate/node-data-uri-to-buffer/85cd8c854aefbf1bb636789d80364cfac8ea1583/README.md#license",
+          "sha256": "aa7c09d3ff3c4302fb26fb696cd1b2e24dcc71846c80406d037b021342e78e0e"
+        }
+      ]
+    },
+    "dfa@1.2.0": {
+      "integrity": "sha512-ED3jP8saaweFTjeGX8HQPjeC1YYyZs98jGNZx6IiBvxW7JG5v492kamAQB3m2wop07CvU/RQmzcKr6bgcC5D/Q==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/dfa-README-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/devongovett/dfa/3f5e603e5082caedabefefdf53e8a6ca3111e966/README.md#license",
+          "sha256": "daf005969aac8cb4283b3777361f0244f4cce898b9a983a60b7f0d9e96f559bf"
+        },
+        {
+          "path": "third-party-licenses/spdx/MIT.txt",
+          "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/MIT.txt",
+          "sha256": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5"
+        }
+      ]
+    },
+    "fontkit@2.0.4": {
+      "integrity": "sha512-syetQadaUEDNdxdugga9CpEYVaQIxOwk7GlwZWWZ19//qW4zE5bknOKeMBDYAASwnpaSHKJITRLMF9m1fp3s6g==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/fontkit-README-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/foliojs/fontkit/fbf3b9ef21eebd219eb73e666faed573af0fba09/README.md#license",
+          "sha256": "daf005969aac8cb4283b3777361f0244f4cce898b9a983a60b7f0d9e96f559bf"
+        },
+        {
+          "path": "third-party-licenses/spdx/MIT.txt",
+          "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/MIT.txt",
+          "sha256": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5"
+        },
+        {
+          "path": "third-party-licenses/upstream/base64-arraybuffer-MIT.txt",
+          "source": "https://raw.githubusercontent.com/niklasvh/base64-arraybuffer/v1.0.2/LICENSE",
+          "sha256": "f3eca6ff762533fa5a77caf954a143e48afa204668cf97dce758c45a9e006be3"
+        }
+      ]
+    },
+    "proxy-agent-negotiate@1.1.0": {
+      "integrity": "sha512-N8IBcM3UgCVzz2L2Lqv8DVntDnnC8/hiV4nEDUPkqq72TPUgYWjQc+bdZlBPZK9LzPAvOY//gAt0S0DApoOXWQ==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/proxy-agent-negotiate-release-declaration.json",
+          "source": "https://raw.githubusercontent.com/TooTallNate/proxy-agents/b7e5f7ccce1a3ac5b339cc4c587974e8989cbc16/packages/negotiate/package.json",
+          "sha256": "22afa667fffb3ada1f7d56955ed59f396936f80c55ce09a229fe0afb3247c77a"
+        },
+        {
+          "path": "third-party-licenses/spdx/MIT.txt",
+          "source": "https://raw.githubusercontent.com/spdx/license-list-data/v3.28.0/text/MIT.txt",
+          "sha256": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5"
+        }
+      ]
+    },
+    "saxes@6.0.0": {
+      "integrity": "sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/saxes-ISC.txt",
+          "source": "https://raw.githubusercontent.com/lddubeau/saxes/211fa0ebec9b628affc09219199639887174bfc3/LICENSE",
+          "sha256": "0fac2374380621b22e6b50451057721a9c52935b02d16d106a9f04897f061d0e"
+        }
+      ]
+    },
+    "sherpa-onnx-darwin-arm64@1.13.8": {
+      "integrity": "sha512-FPNgJMgnWVl/KhRTIhG3KL3A4Om63Rn4YKXc9/uHY7SzLcvqLJLc/h7UBWJwduXvv7K18t5NpxHR6XgXn4sjWw==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/sherpa-onnx-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/csukuangfj/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    "sherpa-onnx-node@1.13.8": {
+      "integrity": "sha512-MsDMBdhLFTZ1GwvcGSSQhnS7g/EA8OMH6IYysCVUOM7j8Icty9KRc0E6YT1A5fWBsZwRfKOeh88QC95aRvS8ag==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/sherpa-onnx-apache-2.0.txt",
+          "source": "https://raw.githubusercontent.com/csukuangfj/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    "standardwebhooks@1.1.1": {
+      "integrity": "sha512-bCbX9ZEyFkWPsRz7Bl3NuQUJohmwGSev/yhr7vhaGPlc4AfIrspIRa6cPTBuI1ItmrTDJ4d/S2hCsfe4+vQGnQ==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/standardwebhooks-MIT.txt",
+          "source": "https://raw.githubusercontent.com/standard-webhooks/standard-webhooks/b4d2c14fc5b4ccff3ff271e3b087dff812254c59/libraries/LICENSE",
+          "sha256": "5ec8c7b26b64d881a6706617bed25c049f97f2f35de034c756de8546fd6dbe27"
+        }
+      ]
+    },
+    "standardwebhooks@1.3.0": {
+      "integrity": "sha512-5W9skHjqAm2dlA9wWvglTP+oX47JX4lFXVk1aJV7+TG1snvTR4QXaVgPscEzvOw9GRreeavMwbqEeL+MGhZHCg==",
+      "files": [
+        {
+          "path": "third-party-licenses/upstream/standardwebhooks-MIT.txt",
+          "source": "https://raw.githubusercontent.com/standard-webhooks/standard-webhooks/daee8284cfe9d4e435ec16e3e68a8f30084d6aaf/libraries/LICENSE",
+          "sha256": "5ec8c7b26b64d881a6706617bed25c049f97f2f35de034c756de8546fd6dbe27"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "fig-broken-probe",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Test fixture: a DSH bundle whose page plugin fails to load, for Fig's plugin failure recovery.",
+  "main": "lib/index.js",
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" }, "client": { "platform": "web" } },
+  "exports": { ".": "./lib/index.js", "./client": "./client/client.js", "./cordis.patch.yml": "./cordis.patch.yml", "./package.json": "./package.json" }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Page Preview",
+    "description": "Opens a local page as a user sees it and reports load errors, overflow and broken images, with screenshots. Needs a desktop shell for capture."
+  }
+}

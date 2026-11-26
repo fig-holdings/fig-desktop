@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session Handoff",
+    "description": "Starts another session from a handoff summary and lets it run on its own."
+  }
+}

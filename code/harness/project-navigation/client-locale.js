@@ -1,0 +1,78 @@
+import { pageLocale } from '../shared/page-locale.js'
+
+// This plugin's page text in DSH's locale service (see shared/page-locale.js); en carries exactly zh's keys.
+
+const zh = {
+  'main.color.red': '红色',
+  'main.color.green': '绿色',
+  'main.color.blue': '蓝色',
+  'main.color.orange': '橙色',
+  'main.color.yellow': '黄色',
+  'main.color.purple': '紫色',
+  'main.color.pink': '粉色',
+  'main.color.cyan': '青色',
+  'main.color.light-blue': '浅蓝',
+  'main.color.deep-red': '深红',
+  'main.color.light-orange': '浅橙',
+  'main.color.light-green': '浅绿',
+  'main.color.light-yellow': '浅黄',
+  'main.color.light-purple': '浅紫',
+  'main.color.light-pink': '浅粉',
+  'main.color.neutral': '中性',
+  'main.couldNotLoadOrSave': '无法读取或保存项目外观，请重试。',
+  'main.running': '正在运行',
+  'main.waitingForInput': '等待处理',
+  'main.notRunning': '当前未运行',
+  'main.untitledSession': '未命名会话',
+  'main.moreRecentSessions': '更多最近会话',
+  'main.iconAndColor': '图标与颜色',
+  'main.color': '颜色',
+  'main.icon': '图标',
+  'main.reset': '恢复默认',
+  'main.cancel': '取消',
+  'main.saving': '保存中…',
+  'main.save': '保存',
+  'main.ungrouped': '未分组',
+  'main.couldNotOpenSessionTry': '无法打开会话，请在列表中重试。',
+  'main.recentSessions': '最近会话',
+  'main.iconAndColorMenu': '图标与颜色…'
+}
+
+/** @type {{ [K in keyof typeof zh]: string }} */
+const en = {
+  'main.color.red': 'Red',
+  'main.color.green': 'Green',
+  'main.color.blue': 'Blue',
+  'main.color.orange': 'Orange',
+  'main.color.yellow': 'Yellow',
+  'main.color.purple': 'Purple',
+  'main.color.pink': 'Pink',
+  'main.color.cyan': 'Cyan',
+  'main.color.light-blue': 'Light blue',
+  'main.color.deep-red': 'Deep red',
+  'main.color.light-orange': 'Light orange',
+  'main.color.light-green': 'Light green',
+  'main.color.light-yellow': 'Light yellow',
+  'main.color.light-purple': 'Light purple',
+  'main.color.light-pink': 'Light pink',
+  'main.color.neutral': 'Neutral',
+  'main.couldNotLoadOrSave': 'Could not load or save project appearance. Try again.',
+  'main.running': 'Running',
+  'main.waitingForInput': 'Waiting for input',
+  'main.notRunning': 'Not running',
+  'main.untitledSession': 'Untitled session',
+  'main.moreRecentSessions': 'More recent sessions',
+  'main.iconAndColor': 'Icon and color',
+  'main.color': 'Color',
+  'main.icon': 'Icon',
+  'main.reset': 'Reset',
+  'main.cancel': 'Cancel',
+  'main.saving': 'Saving…',
+  'main.save': 'Save',
+  'main.ungrouped': 'Ungrouped',
+  'main.couldNotOpenSessionTry': 'Could not open session. Try from the list.',
+  'main.recentSessions': 'Recent sessions',
+  'main.iconAndColorMenu': 'Icon and color…'
+}
+
+export const { t, install } = pageLocale('fig.project-navigation', zh, en)

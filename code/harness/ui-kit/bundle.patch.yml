@@ -1,0 +1,5 @@
+# Used when the package is installed in a profile as a bundle (for example DSH Web without Fig's shell, which team
+# plugins share): the entry names the package. Fig Desktop itself patches it in by path (cordis.patch.yml).
+- insert:
+    - id: fig-ui-kit
+      name: '@local/dsh-ui-kit'

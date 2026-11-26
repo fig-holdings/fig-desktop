@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Side Chat",
+    "description": "A read-only conversation in the right sidebar that reads the main session and, once you confirm, steers it."
+  }
+}

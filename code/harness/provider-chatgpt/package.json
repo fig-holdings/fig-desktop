@@ -1,0 +1,27 @@
+{
+  "name": "@local/dsh-provider-chatgpt",
+  "version": "0.1.1",
+  "private": true,
+  "description": "ChatGPT subscription models through a ChatGPT sign-in, with an account page and usage limits. Local use only.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings-general",
+        "@deepseek-ai/dsh-client-ui-model-selection"
+      ]
+    }
+  }
+}

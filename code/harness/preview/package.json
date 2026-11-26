@@ -1,0 +1,26 @@
+{
+  "name": "@local/dsh-preview",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A preview tool that opens a local page as a user sees it and reports load errors, overflow and broken images, with screenshots.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-tool"
+      ]
+    }
+  }
+}

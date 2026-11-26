@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-side-chat
+      name: ./index.js

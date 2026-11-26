@@ -1,0 +1,23 @@
+{
+  "name": "@local/dsh-ui-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fig's shared page pieces as the figUi service: icons, cards, metrics, status tags and the heat map, drawn in Fig's own SVG.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

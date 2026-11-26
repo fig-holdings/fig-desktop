@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Development workbench",
+    "description": "Shows the current repository, branch, uncommitted and branch changes, and this session's background tasks beside the conversation."
+  }
+}

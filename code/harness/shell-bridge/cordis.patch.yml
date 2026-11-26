@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-shell-bridge
+      name: ./index.js

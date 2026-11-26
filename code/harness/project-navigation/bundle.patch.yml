@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-project-navigation
+      name: '@local/dsh-project-navigation'

@@ -1,0 +1,9 @@
+{
+  "name": "@local/dsh-runtime",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The DSH release Fig runs, with its whole dependency tree locked. Change it only through npm run dsh:verify.",
+  "dependencies": {
+    "@deepseek-ai/dsh": "0.2.2-rc.5"
+  }
+}

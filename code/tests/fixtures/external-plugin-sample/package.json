@@ -1,0 +1,19 @@
+{
+  "name": "@fig-sample/team-console",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A sample external plugin for Fig's Profile tests: it uses figUi, figActivity, a sidebar panel and claimed tasks in the workspace picker.",
+  "type": "module",
+  "engines": { "dsh": "^0.2.2-rc.1" },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./bundle.patch.yml": "./bundle.patch.yml",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "dsh": {
+    "bundle": { "patch": "./bundle.patch.yml" },
+    "client": { "platform": "web" }
+  }
+}

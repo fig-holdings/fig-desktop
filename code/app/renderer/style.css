@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../../../assets/brand/geist-mono.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  color-scheme: light dark;
+  /* Brand colors from the Fig visual identity (see assets/brand/provenance.json). */
+  --ink: #14161b; --paper: #f3f1ec; --signal: #ff6a1a;
+  /* Match the DSH workbench's built-in --dsw-alias-bg-base. */
+  --canvas: light-dark(#fff, #151517); --surface: light-dark(#fff, #1d2026);
+  --text: light-dark(var(--ink), var(--paper)); --muted: light-dark(#666a72, #aeb1b8);
+  --line: light-dark(#d9dadd, #34373e); --tint: light-dark(#eceef1, #24272e);
+  --focus: light-dark(#b44700, #ff9b62); --danger: light-dark(#b43f34, #ffb2a3);
+  --button: light-dark(var(--ink), var(--paper)); --button-text: light-dark(var(--paper), var(--ink));
+  --button-hover: light-dark(#30333b, #dddcd7);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif;
+  font-size: 15px; color: var(--text);
+  font-synthesis: none; -webkit-font-smoothing: antialiased;
+}
+:root[data-appearance] { background: var(--canvas); }
+:root[data-appearance="light"] { color-scheme: light; }
+:root[data-appearance="dark"] { color-scheme: dark; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+button, summary { -webkit-app-region: no-drag; }
+/* macOS hides the title bar; keep a strip along the top for moving the window. */
+body::before { content: ''; position: fixed; inset: 0 0 auto; height: 28px; -webkit-app-region: drag; }
+/* Behind the DSH workbench this page stays loaded. Electron merges every view's drag areas, and a
+   no-drag button in the DSH page cannot cancel this strip, so it must go while the workbench shows. */
+body:has(.startup[hidden])::before { content: none; }
+.startup { min-height: 100vh; display: grid; padding: 40px 0 24px; }
+.panel { width: min(calc(100% - 48px), 360px); align-self: center; justify-self: center; }
+.identity { margin-bottom: 20px; }
+.wordmark-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 12px; margin-left: -2px; }
+.wordmark { display: block; width: 216px; min-width: 0; }
+.wordmark img { display: block; width: 100%; height: auto; }
+/* The Desktop lettering baseline sits 9px above the bottom of the rendered SVG. */
+.app-version { position: relative; bottom: 9px; color: var(--muted); font: 12px 'Geist Mono', 'SFMono-Regular', monospace; }
+.tagline { margin: 8px 0 0; color: var(--muted); font-size: 13px; letter-spacing: .04em; }
+.startup-content { padding-top: 16px; border-top: 1px solid var(--line); }
+h1 { margin: 0; font-size: 24px; line-height: 1.35; letter-spacing: -.5px; font-weight: 550; }
+.description { color: var(--muted); line-height: 1.7; margin: 8px 0 14px; overflow-wrap: anywhere; }
+.status { min-height: 46px; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 9px; font-size: 14px; }
+.spinner { width: 16px; height: 16px; flex: 0 0 auto; border: 1.8px solid var(--line); border-top-color: var(--signal); border-radius: 50%; animation: spin 1s linear infinite; }
+.elapsed { margin-left: auto; color: var(--muted); font-family: 'Geist Mono', 'SFMono-Regular', monospace; font-size: 12px; }
+.hint { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.error-icon { display: grid; place-items: center; flex: 0 0 auto; width: 18px; height: 18px; border: 1.5px solid currentColor; border-radius: 50%; font-size: 12px; font-weight: 700; }
+.status-error { color: var(--danger); }
+.plugin-lead { margin: 0 0 8px; }
+.plugin-list { margin: 0; padding: 10px 14px 10px 30px; background: var(--surface); border: 1px solid var(--line); border-radius: 9px; font: 13px 'Geist Mono', 'SFMono-Regular', monospace; color: var(--text); overflow-wrap: anywhere; }
+.plugin-list li + li { margin-top: 4px; }
+.choice-path { margin: 0; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 9px; font: 13px 'Geist Mono', 'SFMono-Regular', monospace; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+button { min-height: 44px; border: 1px solid var(--line); border-radius: 8px; padding: 0 16px; background: var(--surface); color: var(--text); font: inherit; font-size: 14px; cursor: pointer; transition: background .15s ease; }
+button:hover { background: var(--tint); }
+button:active { filter: brightness(.94); }
+button.primary { background: var(--button); border-color: var(--button); color: var(--button-text); }
+button.primary:hover { background: var(--button-hover); }
+button:focus-visible, summary:focus-visible, pre:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.action-error { color: var(--danger); font-size: 13px; }
+.diagnostics { margin-top: 16px; }
+summary { cursor: pointer; color: var(--muted); font-size: 12px; min-height: 30px; line-height: 1.6; }
+summary span { float: right; margin-left: 12px; font-family: 'Geist Mono', 'SFMono-Regular', monospace; font-size: 11px; }
+pre { background: var(--tint); border-radius: 8px; color: var(--muted); padding: 12px; max-height: 185px; overflow: auto; font-family: 'Geist Mono', 'SFMono-Regular', monospace; font-size: 11px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

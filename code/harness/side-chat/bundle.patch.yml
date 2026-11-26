@@ -1,0 +1,6 @@
+# The bundle's patch, used when the package is installed in a profile: the entry names the package, so DSH reads its
+# title and description (locale/*.json) for the Plugins page and Settings. cordis.patch.yml inserts the same entry by
+# path, for loading the package with --patch.
+- insert:
+    - id: fig-side-chat
+      name: '@local/dsh-side-chat'

@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+._*
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.local
+*.p12
+*.p8
+*.key
+
+# Dependencies, build output and local packages
+node_modules/
+dist/
+/work/
+/outputs/

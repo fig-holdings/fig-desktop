@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Parent Folder Rules",
+    "description": "Adds the AGENTS.md files between the startup folder and the project's Git root, and a short Harness guidance."
+  }
+}

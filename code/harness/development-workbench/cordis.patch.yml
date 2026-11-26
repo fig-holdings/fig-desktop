@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-development-workbench
+      name: ./index.js

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Delegate Review",
+    "description": "Hands a read-only review or question to the local Codex or Claude Code CLI."
+  }
+}

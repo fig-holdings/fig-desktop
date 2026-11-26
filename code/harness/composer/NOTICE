@@ -1,0 +1,5 @@
+This package contains code adapted from DSH Codex UI
+(https://github.com/MichengAI/dsh-codex-ui, commit 7b9f5e7), licensed under the
+Apache License 2.0; see LICENSE-dsh-codex-ui. Adapted parts are marked in the
+source and were rewritten for Fig Desktop (Host-side storage instead of browser
+storage, plain JavaScript client).

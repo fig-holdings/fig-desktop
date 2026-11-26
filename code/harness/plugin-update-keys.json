@@ -1,0 +1,9 @@
+{
+  "keys": [
+    {
+      "id": "fig-dev-fc95e5ef",
+      "publicKey": "MCowBQYDK2VwAyEAOu2BikBLZjILu7pRctufSq6Fh14P7/LdkdG3ZFUmizA=",
+      "note": "Development test key for local trial builds; its private half stays in work/plugin-keys/ on the developer Mac. Replace with the release key before public distribution."
+    }
+  ]
+}

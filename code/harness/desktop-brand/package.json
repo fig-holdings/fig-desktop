@@ -1,0 +1,16 @@
+{
+  "name": "@local/dsh-desktop-brand",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fig Desktop's product title in the top bar and its mark and line on the welcome page.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-attention
+      name: ./index.js

@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-web-search
+      name: '@local/dsh-web-search'

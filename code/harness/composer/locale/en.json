@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Composer Helpers",
+    "description": "Recall earlier messages with ↑/↓ in an empty composer, and a next-step hint after each turn."
+  }
+}

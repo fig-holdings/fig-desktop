@@ -1,0 +1,13 @@
+{
+  "about": "DSH plugin compatibility sample: picked from the dshmarket index on 2026-11-08 by kind, downloads and overlap with Fig. tests/plugin-compat-smoke.mjs installs them all for every DSH release Fig verifies. Change the list only with a reason in each entry's `why`.",
+  "plugins": [
+    { "name": "dshmarket", "kind": "market", "title": "插件市场", "why": "The community market the user browses for ideas." },
+    { "name": "dsh-config-manager", "kind": "tool + settings", "title": "配置管理器", "why": "Most downloaded in the sample (about 26k a month)." },
+    { "name": "dsh-better-workspace", "kind": "ui: sidebar", "title": "更好的工作区", "why": "Rebuilds the sidebar's workspace list, where Fig also adapts the page." },
+    { "name": "dsh-tidy-display", "kind": "ui: conversation", "title": "dsh-tidy-display", "why": "Changes how conversations render." },
+    { "name": "dsh-everforest", "kind": "theme", "title": "Everforest", "why": "A theme over Fig's light and dark appearance." },
+    { "name": "@max-null/dsh-memory", "kind": "model tools", "title": "@max-null/dsh-memory", "why": "Adds tools for the model." },
+    { "name": "@goodandready/dsh-subscriptions", "kind": "model providers", "title": "@goodandready/dsh-subscriptions", "why": "Also signs in ChatGPT and Grok subscriptions, as Fig does." },
+    { "name": "@michengai/dsh-btw", "kind": "side question", "title": "BTW", "why": "Overlaps Fig's side chat." }
+  ]
+}

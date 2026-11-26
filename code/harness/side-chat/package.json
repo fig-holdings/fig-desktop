@@ -1,0 +1,27 @@
+{
+  "name": "@local/dsh-side-chat",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Side chat: a read-only conversation beside the main session that reads its live progress and, after you confirm, steers it.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-model-selection"
+      ]
+    }
+  }
+}

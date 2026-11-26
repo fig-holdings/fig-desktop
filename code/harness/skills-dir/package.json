@@ -1,0 +1,19 @@
+{
+  "name": "@local/dsh-skills-dir",
+  "version": "0.1.0",
+  "private": true,
+  "description": "One extra skill folder for every session and model, beside DSH's own skill folders.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    }
+  }
+}

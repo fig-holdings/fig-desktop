@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-ui-kit
+      name: ./index.js

@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-sidebar-brand
+      name: ./index.js

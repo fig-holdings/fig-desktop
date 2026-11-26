@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-instructions
+      name: ./index.js

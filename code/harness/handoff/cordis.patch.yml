@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-session
+      name: ./index.js

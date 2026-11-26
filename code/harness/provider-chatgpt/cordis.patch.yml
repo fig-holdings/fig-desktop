@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-chatgpt-provider
+      name: ./index.js

@@ -1,0 +1,287 @@
+/*
+ * Fig's window chrome for the DSH workbench on macOS, inserted into the DSH page by the main
+ * process. A local adaptation of DSH 0.2.2's markup, kept to this file:
+ * recheck it whenever DSH changes; tests/sidebar-rail-smoke.mjs and tests/settings-smoke.mjs cover it.
+ *
+ * Elements are found by slots and data attributes plus the header's own structure, with two
+ * exceptions DSH leaves no attribute for: the sidebar toggle and collapsed rail are matched by the
+ * `_toggle`/`_collapsed` fragments of their module class names, and the Session log export's …
+ * button by its zh/en aria-label. sidebar-rail-smoke fails when either stops matching.
+ *
+ * The main process sets data-fig-fullscreen on <html> in full screen, where the traffic lights and
+ * the space reserved for them go away. The name is `fullScreenAttribute` in
+ * harness/shared/page-contract.ts; CSS cannot import it, so keep the two in step.
+ *
+ * Injected only on macOS (app/main/dsh-view.ts), the one platform Fig ships for.
+ */
+
+/*
+ * Title bar. macOS hides it, so the traffic lights sit over the top of the DSH sidebar. DSH marks
+ * its sidebar logo row and conversation header with data-window-drag but only styles them for its
+ * own desktop app (data-platform, which also needs that app's keyboard bridge). Fig makes them
+ * draggable, adds a top strip, and moves the sidebar below the lights.
+ */
+html::before { content: ''; position: fixed; inset: 0 0 auto; height: 24px; z-index: 2147483647; pointer-events: none; -webkit-app-region: drag; }
+[data-window-drag] { -webkit-app-region: drag; }
+button, a, input, textarea, select, [role=button], [role=menuitem], [role=tab], [contenteditable=true] { -webkit-app-region: no-drag; }
+[data-fig-brand] { user-select: none; -webkit-user-drag: none; }
+/* The provider remains mounted for its catalog/shortcuts; its header control moves into … via desktop-skin. */
+[data-slot="conversation.session.header.utilities"] [data-open-target="directory"] { display: none; }
+[data-fig-open-local] { min-width: 0; }
+[data-fig-open-local] > div { width: 100%; }
+[data-fig-open-local] { position: relative; }
+[data-fig-open-local] [role="menu"] { position: static; margin-block: 4px; min-width: 0; width: 100%; box-sizing: border-box; z-index: 10; padding: 6px; border: .5px solid var(--dsw-alias-border-l3); border-radius: 12px; background: var(--dsw-specific-sidebar-fill); box-shadow: 0 8px 24px #0002; }
+[data-fig-open-local] [role="menu"] button { width: 100%; }
+[data-fig-open-local] [role="menu"] button:focus-visible { outline: 2px solid var(--dsw-alias-brand-primary); outline-offset: -2px; }
+
+/* The brand plugin appends a plain product title to the page body, positioned in the desktop top bar. */
+[data-fig-product-title] {
+  position: fixed; top: 0; left: 96px; height: 44px; display: flex; align-items: center; gap: 3px;
+  color: var(--dsw-alias-label-primary); font: 500 13px/1 -apple-system, BlinkMacSystemFont, sans-serif;
+  white-space: nowrap; user-select: none; pointer-events: none; -webkit-app-region: drag; z-index: 100;
+}
+[data-fig-product-title] strong { font-weight: 700; }
+[data-fig-product-title] > span { color: var(--dsw-alias-label-caption); }
+[data-fig-page-navigation] { position: fixed; left: 184px; top: 8px; height: 28px; display: flex; gap: 2px; z-index: 101; -webkit-app-region: no-drag; }
+[data-fig-page-navigation] button { display: grid; place-items: center; width: 24px; height: 28px; padding: 0; border: 0; border-radius: 5px; background: transparent; color: var(--dsw-alias-label-primary); cursor: pointer; }
+[data-fig-page-navigation] button:hover:not(:disabled) { background: var(--dsw-alias-interactive-bg-hover); }
+[data-fig-page-navigation] button:disabled { opacity: .3; cursor: default; }
+[data-fig-page-navigation] button:focus-visible { outline: 2px solid var(--dsw-alias-state-business-primary); outline-offset: 1px; }
+html:has([data-sidebar-collapsed]) [data-fig-page-navigation], html[data-fig-fullscreen] [data-fig-page-navigation] { display: none; }
+/* Keep only the original toggle in the logo row; its absolute placement is defined below. */
+[data-slot="sidebar"] [data-window-drag]:has(> button[class*="_toggle"]) {
+  height: 0; min-height: 0; padding-block: 0; margin-block: 0;
+  > :not(button[class*="_toggle"]) { display: none; }
+}
+html:has([data-sidebar-collapsed]) [data-fig-product-title] { display: none; }
+html:not([data-fig-fullscreen]) [data-sidebar-collapsed] [data-slot="main.conversation"] header[data-window-drag] { padding-left: 72px; }
+/* Body-owned so navigation to non-conversation modules cannot unmount the restore control. */
+html body [data-fig-rail-toggle] {
+  display: none; position: fixed; left: 84px; top: 8px; z-index: 101;
+  width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--dsw-radius-sm);
+  background: transparent; color: var(--dsw-alias-label-primary); cursor: pointer;
+  align-items: center; justify-content: center; -webkit-app-region: no-drag;
+}
+html:has([data-sidebar-collapsed]) [data-fig-rail-toggle] { display: inline-flex; }
+[data-fig-rail-toggle]:hover { background: var(--dsw-alias-interactive-bg-hover); }
+[data-fig-rail-toggle]:focus-visible { outline: 2px solid var(--dsw-alias-state-business-primary); outline-offset: 1px; }
+html[data-fig-fullscreen] [data-fig-rail-toggle] { left: 12px; top: 4px; }
+html[data-fig-fullscreen]:has([data-sidebar-collapsed]) [data-slot="main.conversation"] header[data-window-drag] { padding-left: 52px; }
+html[data-fig-fullscreen]:has([data-sidebar-collapsed]) :has(> [data-slot="main"]):not(:has([data-slot="main.conversation"])) { margin-top: 36px; }
+/* Reserve the icon and separator even when the project name is truncated. */
+.fig-header-project { min-width: 48px !important; }
+/* The skin adapter keeps native controls and adds a currentColor panel/arrow icon. */
+button:has(> [data-fig-sidebar-icon]) { position: relative; }
+button:has(> [data-fig-sidebar-icon]) > svg:not([data-fig-sidebar-icon]) { visibility: hidden; }
+[data-fig-sidebar-icon] { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+html[data-fig-fullscreen] [data-fig-product-title] { display: none; }
+html[data-fig-fullscreen] [data-slot="sidebar"] [data-window-drag]:has(> button[class*="_toggle"]) { height: 36px; }
+
+/*
+ * Top bar and cards. As in Codex, a 44px top bar in the sidebar colour runs across the window and
+ * content sits below it on cards with a rounded top-left corner. Other main panels keep their own
+ * header and simply start below the bar.
+ */
+html:not([data-fig-fullscreen]) {
+  [data-slot="sidebar"] > div { padding-top: 50px; }
+  :has(> [data-rightbar-col]) { background: var(--dsw-specific-sidebar-fill); }
+  :has(> [data-rightbar-col])::before { content: ''; position: absolute; inset: 0 0 auto; height: 44px; -webkit-app-region: drag; }
+  :has(> [data-slot="sidebar"]) { border-right: 0; }
+  :has(> [data-slot="main"]):not(:has([data-slot="main.conversation"])) { margin-top: 44px; border-top: .5px solid var(--dsw-alias-border-l3); border-left: .5px solid var(--dsw-alias-border-l3); border-top-left-radius: 12px; }
+
+  /*
+   * In a conversation the DSH header becomes the top bar row (title, mode, Conversation/Trace tabs,
+   * then its actions on the right) and the transcript is the card. The title keeps its width (at
+   * the available row space) and only the mode label follows it. The view tab row is dissolved into the
+   * bar (display: contents), so DSH, which allows one tab per 120px of that row, keeps every view
+   * but Conversation in its … menu; that menu moves to the right, where the desktop-skin plugin
+   * adds the Session log export's Download and Feedback rows and the export's own … button is
+   * hidden. The Conversation tab shows only while another view is open, as the way back. DSH's
+   * -16px right margin on the right-sidebar button is undone so it stays inside the bar.
+   */
+  [data-slot="main.conversation"] {
+    > * { background: transparent; }
+    header[data-window-drag] {
+      display: flex; align-items: center; gap: 12px; box-sizing: border-box; height: 44px; min-height: 44px; padding: 0 12px 0 20px; border-bottom: 0;
+      > [data-slot="conversation.session.header"] > :first-child { display: contents; }
+      > [data-slot="conversation.session.header"] > :first-child > :first-child { order: 1; flex: 0 1 auto; max-width: none; min-width: 0; }
+      [data-slot="conversation.session.header"] nav { flex: 0 1 auto; min-width: 0; }
+      [data-slot="conversation.session.header.actions"] { flex-shrink: 0; }
+      :has(> [data-slot="conversation.session.header.utilities"]), [data-conversation-header-corner] { flex-shrink: 0; }
+      :has(> [data-conversation-tabs]) { display: contents; }
+      [data-conversation-tabs] { order: 2; }
+      [data-conversation-tabs]:has(> [role="tab"]:first-child[aria-selected="true"]) { display: none; }
+      [data-conversation-tabs] > [role="tab"] { padding-top: 9px; }
+      :has(> [data-slot="conversation.session.header.utilities"]) { order: 3; margin-left: auto; }
+      :has(> [data-conversation-tabs]) > :not([data-conversation-tabs]) { order: 4; }
+    }
+    [data-slot="conversation.session.header.utilities"] button[aria-haspopup="menu"]:is([aria-label="更多操作"], [aria-label="More actions"]) { display: none; }
+    /* DSH 0.2.2-rc.5: the session header's own … (context-menu service); its rows join the views … via desktop-skin. */
+    :has(> [data-slot="conversation.session.header.utilities"]) > :not([data-slot]) button[data-context-menu-trigger],
+    :has(> [data-slot="conversation.session.header.utilities"]) > button[data-context-menu-trigger] { display: none; }
+    [data-conversation-header-corner] { order: 5; margin-right: 0; }
+    [data-conversation-content] { background: var(--dsw-alias-bg-base); border-top: .5px solid var(--dsw-alias-border-l3); border-left: .5px solid var(--dsw-alias-border-l3); border-top-left-radius: 12px; }
+  }
+
+  /* The right sidebar's tab strip joins the top bar and its body is a second card. */
+  [data-rightbar-col] [data-dockkit-pane] {
+    background: transparent;
+    > :first-child { box-sizing: border-box; height: 44px; display: flex; align-items: center; }
+    > :first-child > [data-dockkit-strip] { box-sizing: border-box; height: 100%; flex: 1; align-items: center; padding-top: 0; padding-bottom: 0; }
+    > :last-child { background: var(--dsw-alias-bg-base); border-top: .5px solid var(--dsw-alias-border-l3); border-left: .5px solid var(--dsw-alias-border-l3); border-top-left-radius: 12px; }
+  }
+}
+
+/* DSH 0.2.2-rc.1: keep long document names legible instead of fading both ends.
+ * Attribute-scoped to the native rightbar; retain native tabs, menus and drag behavior.
+ * Recheck with rightbar-header-smoke on upgrades; remove when upstream offers this layout.
+ */
+[data-rightbar-col] {
+  [data-dockkit-pane] > :first-child { min-width: 0; background: var(--dsw-specific-sidebar-fill); }
+  [data-dockkit-strip] { min-width: 0; }
+  [data-dockkit-tab] { max-width: 280px; }
+  [data-dockkit-tab-title] { mask-image: none !important; padding-right: 18px; }
+  [data-dockkit-tab-title] > [data-sidebar-right-tab] { min-width: 0; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  [data-dockkit-tab-title] svg { vertical-align: -3px; margin-right: 5px; }
+  /* Always use the basename; reacting to data-path-clipped would oscillate its ResizeObserver. Full path stays in title. */
+  [data-textpreview-path] { mask-image: none !important; justify-content: flex-start; }
+  [data-textpreview-path] > span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  [data-textpreview-path] > span > :first-child { display: none; }
+  [data-textpreview-path] ~ :not([data-slot]) { flex-shrink: 0; }
+}
+
+/*
+ * Sidebar toggle. Collapsed, the desktop-skin plugin's open-sidebar button leads the header, right
+ * of the lights, and the rail drops DSH's logo/toggle row and starts with New session. Expanded, the
+ * collapse button moves up to the traffic-light row, still at the sidebar's right edge; that row is
+ * where back/forward buttons would go later. Its hit area grows from DSH's 28px to the 36px of the
+ * rail buttons, with the icon centre unchanged.
+ */
+[data-sidebar-collapsed] [data-slot="sidebar"] [data-window-drag]:has(> button[class*="_toggle"]) { display: none; }
+html:not([data-fig-fullscreen]) {
+  [data-slot="sidebar"] > div:not([class*="_collapsed"]) { position: relative; }
+  [data-slot="sidebar"] > div:not([class*="_collapsed"]) [data-window-drag] button[class*="_toggle"] { position: absolute; top: 5px; right: calc(var(--dsh-sidebar-inline-padding, 12px) - 4px); width: 36px; height: 36px; border-radius: var(--dsw-radius-md); }
+}
+
+/*
+ * DSH 0.2.2-rc.1 renders the account launcher in sidebar.settings and footer actions above it.
+ * The account launcher and settings gear fill one hover surface when wide. The rail uses only
+ * the account launcher. If DSH falls back to its own settings button, hide Fig's gear.
+ */
+[data-slot="sidebar"] {
+  [data-fig-sidebar-settings] {
+    display: none; width: 36px; height: 36px; padding: 0; border: 0;
+    border-radius: var(--dsw-radius-md); background: transparent; color: var(--dsw-alias-label-primary);
+    align-items: center; justify-content: center; cursor: pointer;
+  }
+  [class*="_footArea"]:has([data-slot="settings.launcher"] button:is([data-signed-out], [data-fig-cowork-trigger])) {
+    reading-flow: flex-visual;
+    margin-block: 8px 10px;
+    border-radius: var(--dsw-radius-md);
+    &:hover { background-color: var(--dsw-alias-interactive-bg-hover); }
+    [class*="_triggerRow"]:has(> [data-slot="settings.launcher"]) { margin: 0; }
+    :is([data-fig-sidebar-settings], [data-slot="settings.launcher"] button:is([data-signed-out], [data-fig-cowork-trigger])) {
+      border-radius: 0;
+      &:hover { background-color: transparent; }
+    }
+    > :has(> [data-slot="sidebar.footer.action"]) { order: 1; width: auto; justify-content: center; }
+    &:has([data-slot="settings.launcher"] button:is([data-signed-out], [data-fig-cowork-trigger])[data-collapsed="false"]) {
+      flex-direction: row;
+      margin-block: 4px;
+      > :has(> [data-slot="sidebar.settings"]) { flex: 1; width: auto; }
+      [data-fig-sidebar-settings] { display: inline-flex; height: auto; }
+      [data-slot="settings.launcher"] > [data-inset="true"] { margin-inline: 0; }
+      [data-slot="settings.launcher"] button[data-signed-out="false"] { padding-inline: 8px; }
+      /* Cowork's replacement launcher must stretch through both slot wrappers, not fit its name. */
+      :is([data-slot="sidebar.settings"], [class*="_triggerRow"], [data-slot="settings.launcher"]):has(button[data-fig-cowork-trigger]) {
+        display: block; width: 100%; min-width: 0;
+      }
+    }
+  }
+
+  /* The account plugin owns both the avatar and the menu; replace only the signed-out face. */
+  [data-slot="settings.launcher"] button[data-signed-out="true"][data-fig-sign-in] {
+    > span { display: none; }
+    > svg { flex: none; width: 16px; height: 16px; }
+    &[data-collapsed="false"]::after { content: attr(data-fig-sign-in); white-space: nowrap; }
+  }
+}
+
+/*
+ * Settings dialog. DSH 0.2.2-rc.1 already opens settings as a centred
+ * dialog with its own mask, Esc, close button, focus trap and focus return; Fig sizes it: 960×720 shrinking with the
+ * window, a 56px title row (设置 and ×), a 200px section list and a section scrolling on its own with 32px sides. Plugin
+ * sections from outside Fig sit last under a 协作版 label (client-settings.js marks them). At 720px and below it fills the
+ * window and the list becomes a row of pills. Only DSH's modal attribute and the dialog's grid children are used;
+ * geometry needs !important over DSH's module styles. Recheck on a DSH upgrade (tests/settings-smoke.mjs).
+ */
+[data-shortcut-modal="settings"] {
+  width: min(960px, calc(100vw - 64px)) !important; height: min(720px, calc(100vh - 80px)) !important; max-width: none !important;
+  grid-template-columns: 200px minmax(0, 1fr) !important; grid-template-rows: 56px minmax(0, 1fr) !important;
+  > div:first-child:has([data-slot="settings.header"]) { display: flex; align-items: center; padding: 0 12px 0 24px; font-size: 16px; line-height: 24px; }
+  > div:first-child + nav + div:has(> button) { height: 56px; align-items: center; padding: 0 16px 0 10px; }
+  > nav { padding-top: 8px; }
+  > nav > div { display: flex; flex-direction: column; }
+  > nav [data-fig-settings-group] { order: 1; }
+  > nav [data-fig-settings-group-first] { margin-top: 30px; position: relative; overflow: visible; }
+  > nav [data-fig-settings-group-first]::before {
+    content: attr(data-fig-settings-group-first); position: absolute; left: 12px; bottom: calc(100% + 4px);
+    font-size: 12px; line-height: 18px; color: var(--dsw-alias-label-secondary); pointer-events: none;
+  }
+  > div:last-child { padding: 8px 32px 32px; }
+}
+@media (max-width: 720px) {
+  [role="presentation"]:has(> [data-shortcut-modal="settings"]) { padding: 0 !important; }
+  [data-shortcut-modal="settings"] {
+    width: 100vw !important; height: 100vh !important; border-radius: 0 !important;
+    grid-template-columns: minmax(0, 1fr) auto !important; grid-template-rows: 52px auto minmax(0, 1fr) !important;
+    grid-template-areas: none !important;
+    > div:first-child:has([data-slot="settings.header"]) { grid-area: 1 / 1; padding-left: 16px; }
+    > div:first-child + nav + div:has(> button) { grid-area: 1 / 2; height: 52px; padding-right: 8px; }
+    > nav { grid-area: 2 / 1 / 3 / 3; padding: 4px 16px 10px; border-bottom: .5px solid var(--dsw-alias-border-l3); }
+    > nav > div { flex-direction: row; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+    > nav button { flex: none; height: 32px; padding: 0 12px; border-radius: 999px; }
+    > nav [data-fig-settings-group-first] { margin-top: 0; }
+    > nav [data-fig-settings-group-first]::before { content: none; }
+    > div:last-child { grid-area: 3 / 1 / 4 / 3; padding: 16px 16px 32px; }
+  }
+}
+
+/*
+ * New conversation welcome (DSH 0.2.2-rc.1). The mark slot is inside the headline and two
+ * wrappers. Centre only the paired welcome copy; retain the hidden mark slot as the adapter anchor.
+ */
+[data-composer-seat] {
+  div:has(> div > div > span > [data-slot="conversation.hero.brand.mark"] > [data-fig-brand="hero-mark"]) {
+    padding-inline: var(--dsh-composer-side-clearance);
+  }
+  div:has(> span > [data-slot="conversation.hero.brand.mark"] > [data-fig-brand="hero-mark"]) {
+    flex-direction: column; align-items: center; gap: 18px; text-align: center;
+  }
+  [data-fig-welcome] {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; max-width: 100%; min-width: 0; white-space: normal;
+    text-align: center;
+    > * { align-self: center; margin-inline: 0; }
+  }
+  [data-fig-welcome-headline] {
+    font-size: 28px; line-height: 1.35; font-weight: 600;
+    max-width: 100%; text-wrap: balance; overflow-wrap: anywhere;
+  }
+  [data-fig-welcome-subtitle] {
+    font-size: 15px; line-height: 1.65; font-weight: 400;
+    color: var(--dsw-alias-label-caption); max-width: 100%; text-wrap: pretty;
+  }
+  /* Text-only welcome: hide the entire mark wrapper and the original preview badge, leaving no empty row. */
+  span:has(> [data-slot="conversation.hero.brand.mark"] > [data-fig-brand="hero-mark"]) { display: none; }
+  [data-fig-welcome] > :not([data-fig-welcome-headline]):not([data-fig-welcome-subtitle]) { display: none; }
+  @media (max-width: 600px) {
+    [data-fig-welcome-headline] { font-size: 24px; }
+  }
+
+  /* Keep the existing workspace and mode controls together below the card. */
+  div:has(> [data-slot="conversation.composer.bar"]):has(> div > [data-slot="conversation.hero.workspace"]) {
+    reading-flow: flex-visual;
+    > div:has(> [data-slot="conversation.hero.workspace"]) { order: 1; margin-top: 0; }
+  }
+}

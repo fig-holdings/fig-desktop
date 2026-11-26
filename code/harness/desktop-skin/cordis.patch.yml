@@ -1,0 +1,13 @@
+- insert:
+    - id: fig-desktop-skin
+      name: ./index.js
+# Fig offers the standard and creation modes. PTC and minimal stay
+# installed in DSH but leave the mode menu. No local session used them (2026-11-04).
+- id: preset-ptc
+  disabled: true
+- id: preset-minimal
+  disabled: true
+# The supported Web iframe carrier works inside Fig's isolated workbench too.
+# DSH enables this row only for its own desktop profile by default.
+- id: ui-sidebar-browser
+  disabled: false

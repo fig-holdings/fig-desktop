@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preview fixture</title>
+<!-- Deliberate defects for tests/preview-smoke.mjs; each one the preview tool must report. -->
+<link rel="stylesheet" href="https://fonts.example.invalid/css?family=Inter">
+<style>
+  body { margin: 0; font: 14px system-ui; }
+  .card { width: 700px; padding: 16px; border: 1px solid #ccc; }
+  .scroll { overflow-x: auto; max-width: 100%; }
+  .scroll table { width: 900px; }
+  .skip { position: absolute; top: -40px; }
+  @media (prefers-color-scheme: dark) { body { background: #111; color: #eee; } #theme::after { content: 'dark'; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- An icon sprite left visible: no drawing, but 300×150 of blank space at the top. -->
+<svg xmlns="http://www.w3.org/2000/svg"><symbol id="i"><path d="M0 0h1v1z"/></symbol></svg>
+<main id="main">
+  <h1 id="title">Fixture page</h1>
+  <div class="card">A fixed 700 px card that overflows a phone screen.</div>
+  <div class="scroll"><table><tr><td>A wide table inside a scrolling container is fine.</td></tr></table></div>
+  <img src="missing-image.png" alt="missing">
+  <span id="theme"></span>
+</main>
+<script>throw new Error('fixture script failure')</script>
+</body>
+</html>

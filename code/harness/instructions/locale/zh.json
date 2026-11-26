@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "上级目录规则",
+    "description": "补齐启动目录到项目 Git 根之间各级的 AGENTS.md，并加入简短的 Harness 指引。"
+  }
+}

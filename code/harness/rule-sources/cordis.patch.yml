@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-rule-sources
+      name: ./index.js

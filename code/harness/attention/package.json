@@ -1,0 +1,23 @@
+{
+  "name": "@local/dsh-attention",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Task activity: sessions that need you, failures and new results across workspaces, with a usage heat map and task alerts.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

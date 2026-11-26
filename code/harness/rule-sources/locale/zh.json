@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "规则来源",
+    "description": "列出当前会话用到的 AGENTS.md，以及读入后是否有改动。"
+  }
+}

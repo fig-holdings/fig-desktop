@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-grok-provider
+      name: ./index.js

@@ -1,0 +1,19 @@
+{
+  "name": "@local/dsh-instructions",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Parent folder AGENTS.md files DSH's nearest-Git-root discovery leaves out, and a short Harness guidance, added before each step.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    }
+  }
+}

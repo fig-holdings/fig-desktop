@@ -1,0 +1,21 @@
+{
+  "name": "@local/dsh-desktop-skin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fig Desktop's fit of the DSH page to its window and its product choices: Runtime settings, full-window settings, one top-bar menu, Chinese and English only.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-context-menu",
+        "@deepseek-ai/dsh-api-workspace-files"
+      ]
+    }
+  }
+}

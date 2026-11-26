@@ -1,0 +1,3 @@
+- insert:
+    - id: fig-preview
+      name: ./index.js

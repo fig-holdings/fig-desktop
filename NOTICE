@@ -1,0 +1,25 @@
+Fig Desktop
+Copyright 2026 The Fig Desktop Authors
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+Third-party software and asset notices
+
+The desktop build emits a Third-Party Licenses directory with the npm package versions,
+sources, SPDX identifiers, and original notices and license texts. In the app, select
+About Fig Desktop, then View Third-Party Licenses.
+
+The directory covers the Fig application code dependencies, the Electron and Chromium
+download, the verified DeepSeek Harness npm resolution and pnpm fallback, adapted code,
+and graphical assets and fonts. DSH and the pnpm fallback are obtained separately at
+runtime. The DSH inventory records the preloaded resolution for the build platform.
+
+The composer plugin contains code adapted from DSH Codex UI, commit 7b9f5e7, under
+the Apache License, Version 2.0. See code/harness/composer/NOTICE and the accompanying
+LICENSE-dsh-codex-ui. The adaptation changes storage to the host and rewrites the
+client in plain JavaScript.
+
+The Fig wordmarks embed Bricolage Grotesque. Fig also uses Geist Mono.
+Their copyright notices and SIL Open Font License 1.1 texts are in
+code/third-party-licenses/upstream/. The Fig icons and wordmarks originate in the Fig
+visual identity assets. See assets/brand/provenance.json.

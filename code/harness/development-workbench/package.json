@@ -1,0 +1,26 @@
+{
+  "name": "@local/dsh-development-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Development workbench: the current repository, branch, uncommitted and branch changes, and this session's background tasks, docked beside the conversation.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./bundle.patch.yml": "./bundle.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

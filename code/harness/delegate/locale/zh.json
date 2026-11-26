@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "委派审核",
+    "description": "把只读的审核或提问交给本机的 Codex 或 Claude Code CLI。"
+  }
+}

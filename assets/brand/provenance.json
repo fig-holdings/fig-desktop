@@ -1,0 +1,23 @@
+{
+  "source": {
+    "icons": "Fig visual identity v0.4, icon vectors (design source not published)",
+    "wordmarks": "Fig visual identity v0.1, wordmarks and Geist Mono (design source not published)"
+  },
+  "sha256": {
+    "icons": "6e8a1444d7827c60442956fc32a12a91c251c2aa48725cff52f294608cf47e2b",
+    "wordmarks": "bebdd2392452ac25ea509e7a22b4ced0b8091309824914f13a3f6c1b3b83adb9"
+  },
+  "vectors": [
+    "wordmark",
+    "wordmark-reverse",
+    "icon-primary",
+    "icon-light",
+    "icon-signal",
+    "icon-small",
+    "menubar",
+    "ui-logo",
+    "ui-logo-reverse"
+  ],
+  "rasterization": "Chromium SVG renderer at CSS pixel size; transparent background; small variant for 16/32 point iconset entries",
+  "fonts": "Original embedded VI assets; wordmark SVGs retain the supplied Brand font and Geist Mono is extracted for diagnostics"
+}

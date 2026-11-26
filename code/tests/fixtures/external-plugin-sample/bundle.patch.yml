@@ -1,0 +1,3 @@
+- insert:
+    - id: sample-team-console
+      name: '@fig-sample/team-console'
