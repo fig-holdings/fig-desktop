@@ -1,6 +1,6 @@
 {
   "name": "fig-desktop",
-  "version": "0.1.106",
+  "version": "0.1.107",
   "private": true,
   "description": "Fig Desktop — a macOS desktop home for DeepSeek Harness",
   "type": "module",

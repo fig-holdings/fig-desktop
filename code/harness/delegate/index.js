@@ -75,7 +75,9 @@ export const findingsRequest = '\n\nIf you report problems, end your answer with
   + '`[high|medium|low] path:line - summary` (path relative to the working directory; leave out `:line` when it does not apply). '
   + 'If you looked for problems and found none, write FINDINGS and then `none`. Skip the block when the task is not a review.'
 
-const findingLine = /^\s*(?:[-*]\s*)?\[(high|medium|low)\]\s+`?([^\s`]+?)(?::(\d+))?`?\s+[-–—]\s+(.+?)\s*$/i
+// Matched against a trimmed line of bounded length, so no part of the pattern can backtrack across trailing whitespace.
+const findingLine = /^(?:[-*]\s*)?\[(high|medium|low)\]\s+`?([^\s`]+?)(?::(\d+))?`?\s+[-–—]\s+(.+)$/i
+const findingLineLimit = 2000
 const findingLimit = 50
 
 /**
@@ -87,7 +89,9 @@ export function parseFindings(answer) {
   const start = lines.findLastIndex(line => /^\s*(?:#+\s*)?[*_]*FINDINGS:?[*_]*:?\s*$/.test(line))
   if (start < 0) return undefined
   const findings = []
-  for (const line of lines.slice(start + 1)) {
+  for (const raw of lines.slice(start + 1)) {
+    const line = raw.trim()
+    if (line.length > findingLineLimit) continue
     const match = findingLine.exec(line)
     if (match && findings.length < findingLimit) findings.push({ severity: match[1].toLowerCase(), path: match[2], line: match[3] ? Number(match[3]) : null, summary: match[4] })
   }

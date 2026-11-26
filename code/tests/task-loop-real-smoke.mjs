@@ -10,6 +10,8 @@ import { cleanUp, isolatedProfile, launchFig, workbenchPage, until } from '../sc
 import { sessionEvents } from './helpers/session-events.mjs'
 import { evidenceRun, BlockedError, extraScenarioIds } from './helpers/verification-run.mjs'
 import { dshRuntimeRoot } from '../harness/shared/dsh-runtime.js'
+import { prepareDshCache } from '../scripts/dsh-cache.mjs'
+import { testedDsh } from './helpers/dsh-launcher.mjs'
 import { readdirSync as listDir, existsSync as present } from 'node:fs'
 
 /** Names of the skills DSH ships in its own packages (`<package>/{assets,skills}/<name>/SKILL.md`), for skills DSH registers without a path. */
@@ -150,7 +152,8 @@ if (provider === 'chatgpt') {
   const exclusive = refreshMode === 'exclusive' || refreshMode === 'auto' && grant.payload.expires < Date.now()+5*60_000
   if (exclusive) {
     refreshHandoff = await acquireRefreshHandoff({source: join(homedir(), '.fig/.credentials.yaml'), target: credential,
-      modules: process.argv.find(arg => arg.startsWith('--dsh-modules='))?.slice(14)})
+      // The locked DSH install under test (shared/dsh-runtime.js) unless a path is given.
+      modules: process.argv.find(arg => arg.startsWith('--dsh-modules='))?.slice(14) ?? (await prepareDshCache(await testedDsh(), { code: fileURLToPath(new URL('..', import.meta.url)) })).folder})
     // The native transaction selected the actual current grant, not the earlier unlocked read.
     records['fig-chatgpt/subscription'] = parse(await readFile(credential, 'utf8')).records['fig-chatgpt/subscription']
     run.manifest.refreshHandoff = refreshHandoff.metadata

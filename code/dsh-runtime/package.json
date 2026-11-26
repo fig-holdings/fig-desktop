@@ -5,5 +5,10 @@
   "description": "The DSH release Fig runs, with its whole dependency tree locked. Change it only through npm run dsh:verify.",
   "dependencies": {
     "@deepseek-ai/dsh": "0.2.2-rc.5"
+  },
+  "overrides": {
+    "undici": "8.13.1",
+    "@modelcontextprotocol/client": "2.4.0",
+    "fflate": "0.8.3"
   }
 }

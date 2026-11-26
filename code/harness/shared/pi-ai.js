@@ -16,7 +16,7 @@ export async function piModuleLoader(adapterPath = dshResolve('@deepseek-ai/dsh-
   const piModule = (pattern, name) => {
     const target = exports?.[pattern]?.import
     if (typeof target !== 'string' || !target.startsWith('./') || !target.includes('*')) throw new Error('Unsupported pi-ai exports')
-    return import(pathToFileURL(join(dirname(piManifest), target.replace('*', name))).href)
+    return import(pathToFileURL(join(dirname(piManifest), target.replaceAll('*', name))).href)
   }
   return piModule
 }

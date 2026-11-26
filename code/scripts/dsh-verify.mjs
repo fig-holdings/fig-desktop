@@ -51,9 +51,13 @@ if (list.verified.includes(version) && !refresh) {
 // The candidate's lockfile: this release with its dependencies resolved now, never changed after this point.
 const candidateLock = join(code, '../work/dsh-candidates', `${version}-${new Date().toISOString().replace(/[:.]/g, '-')}`)
 await mkdir(candidateLock, { recursive: true })
+// Security overrides Fig applies to DSH's own pins (code/dsh-runtime/package.json `overrides`) carry over to the
+// candidate; drop each one once the DSH release under verification ships the fix itself.
+const { overrides } = JSON.parse(await readFile(join(code, 'dsh-runtime/package.json'), 'utf8'))
+if (overrides) console.log('Carrying dependency overrides into the candidate (remove those DSH now fixes): ' + JSON.stringify(overrides))
 await writeFile(join(candidateLock, 'package.json'), JSON.stringify({ name: '@local/dsh-runtime', version: '0.0.0', private: true,
   description: 'The DSH release Fig runs, with its whole dependency tree locked. Change it only through npm run dsh:verify.',
-  dependencies: { '@deepseek-ai/dsh': version } }, null, 2) + '\n')
+  dependencies: { '@deepseek-ai/dsh': version }, ...overrides ? { overrides } : {} }, null, 2) + '\n')
 await run('npm', ['install', '--package-lock-only', '--ignore-scripts', '--no-audit', '--no-fund'], { cwd: candidateLock })
 process.env.FIG_DSH_CANDIDATE_LOCK = candidateLock
 const env = { ...process.env, FIG_DSH_CANDIDATE: version, FIG_DSH_CANDIDATE_LOCK: candidateLock }
